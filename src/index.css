@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #f7f3ea 0%, #f1efe9 100%);
+  color: #171b2d;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #111827, #374151);
+  color: white;
+}
+
+.hero-poster img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.movie-img {
+  height: 260px;
+  object-fit: cover;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.movie-card-image {
+  height: 260px;
+  object-fit: cover;
+}
+
+.navbar .nav-link {
+  color: white !important;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #d9b15f, #f4d27a);
+  border-color: #d9b15f;
+  color: #111827;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(217, 177, 95, 0.35);
+}
+
+.btn-warning:hover,
+.btn-warning:focus {
+  background: linear-gradient(135deg, #c89f4d, #e7c76a);
+  border-color: #c89f4d;
+  color: #111827;
+}
+
+.ticket-card {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(135deg, #0d1323 0%, #121d34 42%, #1a2744 100%);
+  color: #f8f4ec;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 38px rgba(10, 16, 28, 0.23);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.25rem 1rem;
+  border-bottom: 1px dashed rgba(244, 210, 122, 0.5);
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.08), rgba(255, 255, 255, 0.01));
+}
+
+.ticket-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  color: #f4d27a;
+  opacity: 0.95;
+  margin-bottom: 0.2rem;
+}
+
+.ticket-header h4 {
+  margin: 0;
+  font-weight: 700;
+  color: #fffaf1;
+}
+
+.ticket-badge {
+  background: linear-gradient(135deg, #d9b15f, #f4d27a);
+  color: #101826;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+.ticket-body {
+  padding: 1.2rem 1.25rem 0.5rem;
+}
+
+.ticket-key {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: rgba(244, 210, 122, 0.82);
+  margin-bottom: 0.25rem;
+}
+
+.ticket-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem 1.3rem;
+  border-top: 1px dashed rgba(244, 210, 122, 0.45);
+  font-size: 0.75rem;
+  color: #f3e7c8;
+  opacity: 0.95;
+}
+
+.seat-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.seat-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.seat {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #e5e7eb;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.seat.available:hover {
+  background: #facc15;
+  border-color: #facc15;
+}
+
+.seat.selected {
+  background: #f59e0b;
+  color: white;
+  border-color: #f59e0b;
+}
+
+.seat.booked {
+  background: #374151;
+  color: white;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.3rem;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+
+  .booking-confirmation-wrap {
+    padding-top: 1rem !important;
+  }
+
+  .ticket-container {
+    padding: 1rem !important;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .navbar,
+  .footer,
+  .print-hidden,
+  .main-content > *:not(.booking-confirmation-wrap) {
+    display: none !important;
+  }
+
+  .booking-confirmation-wrap {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .ticket-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .ticket-card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
